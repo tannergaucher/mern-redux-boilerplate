@@ -1,0 +1,22 @@
+{
+  "name": "react-redux-app",
+  "version": "1.0.0",
+  "description": "React Redux Mongo Express Node boilerplate CRUD app",
+  "main": "start.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tanner Gaucher",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.7",
+    "nodemon": "^1.18.3",
+    "uuid": "^3.3.2"
+  }
+}
