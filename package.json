@@ -4,7 +4,7 @@
   "description": "React Redux Mongo Express Node boilerplate CRUD app",
   "main": "start.js",
   "scripts": {
-    "start": "node ./start.js",
+    "start": "nodemon ./start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tanner Gaucher",

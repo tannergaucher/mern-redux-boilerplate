@@ -7,18 +7,22 @@ const Post = mongoose.model('Post')
 exports.createPost = async (req, res) => {
   const post = await new Post(req.body).save()
   console.log('created post: ', post)
+  res.end()
 }
 
 // @DELETE_POST
 exports.deletePost = async (req, res) => {
-  const post = await Post.findOne({ id: req.params.id }).remove()
+  console.log(req.params.id)
+  const post = await Post.findOne({ _id: req.params.id }).remove()
   console.log('deleted post: ', post)
+  res.end()
 }
 
 // @FETCH_POST
 exports.fetchPost = async (req, res) => {
   const post = await Post.findOne({ id: req.params.id })
   console.log('fetched post: ', post)
+  res.send(post)
 }
 
 //  @FETCH_POSTS
@@ -27,7 +31,7 @@ exports.fetchPosts = async (req, res) => {
   const countPromise = Post.count()
   const [posts, count] = await Promise.all([postsPromise, countPromise])
   console.log('posts: ', posts, 'count', count)
-  // res.send...
+  return res.json(posts)
 }
 
-// @ update post doesnt exist yet
+// @UPDATE_POST

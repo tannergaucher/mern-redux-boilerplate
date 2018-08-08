@@ -5,11 +5,8 @@ export const CREATE_POST = 'create_post'
 export const DELETE_POST = 'delete_post'
 export const FETCH_POSTS = 'fetch_posts'
 
-const ROOT_URL = '' //port from variables.env
-const API_KEY = '' //none
-
 export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/posts`)
+  const request = axios.get(`/posts`)
   return {
     type: FETCH_POSTS,
     payload: request
@@ -17,7 +14,7 @@ export function fetchPosts() {
 }
 
 export function createPost(values, callback) {
-  const request = axios.post(`${ROOT_URL}/posts`, values).then(() => callback())
+  const request = axios.post(`/posts`, values).then(() => callback())
   return {
     type: CREATE_POST,
     payload: request
@@ -25,7 +22,7 @@ export function createPost(values, callback) {
 }
 
 export function fetchPost(id) {
-  const request = axios.get(`${ROOT_URL}/posts/${id}`)
+  const request = axios.get(`/posts/${id}`)
   return {
     type: FETCH_POST,
     payload: request
@@ -33,7 +30,7 @@ export function fetchPost(id) {
 }
 
 export function deletePost(id, callback) {
-  const request = axios.delete(`${ROOT_URL}/posts/${id}`).then(() => callback())
+  const request = axios.post(`/posts/${id}`).then(() => callback())
   return {
     type: DELETE_POST,
     payload: id

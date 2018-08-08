@@ -6,26 +6,22 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import promise from 'redux-promise'
-
 import reducers from './reducers'
 
-/* 
-import Components here
-*/
+//___ Components ___ //
+import CreatePost from './components/CreatePost'
+import Index from './components/Index'
+import ShowPost from './components/ShowPost'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
-
-const App = () => <p>Test</p>
-const Page1 = () => <p>page1</p>
-const Page2 = () => <p>page2</p>
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <Switch>
-        <Route path="/page1/" component={Page1} />
-        <Route path="/page2/" component={Page2} />
-        <Route path="/" component={App} />
+        <Route path="/posts/:id" component={ShowPost} />
+        <Route exact path="/create" component={CreatePost} />
+        <Route path="/" component={Index} />
       </Switch>
     </BrowserRouter>
   </Provider>,
